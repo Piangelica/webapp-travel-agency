@@ -1,0 +1,68 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebApp_TravelAgency
+build_property.RootNamespace = WebApp_TravelAgency
+build_property.ProjectDir = C:\Users\PC\source\repos\WebApp TravelAgency\WebApp TravelAgency\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\PC\source\repos\WebApp TravelAgency\WebApp TravelAgency
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Viaggio/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhZ2dpb1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Viaggio/FormViaggio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhZ2dpb1xGb3JtVmlhZ2dpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Viaggio/HomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhZ2dpb1xIb21lUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Viaggio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhZ2dpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Viaggio/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhZ2dpb1xVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-i60i2vlpav
+
+[C:/Users/PC/source/repos/WebApp TravelAgency/WebApp TravelAgency/Views/Shared/_LayoutApp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBcHAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-dwnaalodo7
