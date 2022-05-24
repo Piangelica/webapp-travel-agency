@@ -131,7 +131,7 @@ namespace WebApp_TravelAgency.Controllers
              .Where(viaggio => viaggio.Id == id)
              .FirstorDefault();
 
-                if (viaggioToDelete = null)
+                        if (viaggioToDelete != null)
                 {
                  db.Viaggi.Remove(viaggioToDelete);
                  db.SaveChanges();
@@ -143,4 +143,4 @@ namespace WebApp_TravelAgency.Controllers
                 return NotFound();
             }
         }
-}
+ }
