@@ -20,26 +20,16 @@ namespace WebApp_TravelAgency.Models
         [Column(TypeName = "text")]
         public string Descrizione { get; set; }
 
-
-        public Viaggio(string immagine)
+        public Viaggio()
         {
-            Immagine = immagine;
+           
         }
-
         public Viaggio(string immagine, string titolo, string descrizione)
         {
             this.Immagine = immagine;
             this.Titolo = titolo;
             this.Descrizione = descrizione;
-          
-        }
 
-        public Viaggio(int id, string immagine, string titolo, string descrizione)
-        {
-            Id = id;
-            Immagine = immagine;
-            Titolo = titolo;
-            Descrizione = descrizione;
         }
     }
 }
