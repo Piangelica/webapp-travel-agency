@@ -7,49 +7,62 @@ namespace WebApp_TravelAgency.Controllers
     public class ViaggioController : Controller
     {
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string SearchString)
         {
 
             List<Viaggio> viaggi = new List<Viaggio>();
+
             using (ViaggioContext db = new ViaggioContext())
             {
-                viaggi = db.Viaggi.ToList<Viaggio>();
+                if (SearchString != null)
+                {
+                    viaggi = db.Viaggi.Where(viaggio => viaggio.Titolo.Contains(SearchString) || viaggio.Descrizione.Contains(SearchString)).ToList<Viaggio>();
+                }
+                else
+                {
+                    viaggi = db.Viaggi.ToList<Viaggio>();
+                }
+
             }
 
             return View("HomePage", viaggi);
         }
 
-        [HttpGet]
         public IActionResult Details(int id)
         {
+
+
             using (ViaggioContext db = new ViaggioContext())
             {
                 try
                 {
                     Viaggio viaggioTrovato = db.Viaggi
-                         .Where(viaggio => viaggio.Id == id)
-                         .FirstorDefault();
+                        .Where(viaggio => viaggio.Id == id)
+                        .FirstOrDefault();
 
                     return View("Details", viaggioTrovato);
 
                 }
                 catch (InvalidOperationException ex)
                 {
-                    return NotFound("Mi dispiace, il viaggio con id " + id + " non è stato trovato");
+                    return NotFound("Mi dispiace, il viaggio non è stato trovato");
+
                 }
                 catch (Exception ex)
                 {
                     return BadRequest();
                 }
 
-
             }
+        }
+
 
         [HttpGet]
-            public IActionResult Create()
+        public IActionResult Create()
         {
-            return View("Form");
+            return View("FormViaggio");
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -60,28 +73,31 @@ namespace WebApp_TravelAgency.Controllers
                 return View("FormPost", nuovoViaggio);
             }
 
-                using (ViaggioContext db = new ViaggioContext())
-                {
-                    Viaggio nuovoViaggioDaCreare = new Viaggio( nuovoViaggio.Titolo, nuovoViaggio.Descrizione, nuovoViaggio.Immagine);
-                    db.Viaggi.Add(nuovoViaggioDaCreare);
-                    db.Viaggi.SaveChanges();
-                }
+            using (ViaggioContext db = new ViaggioContext())
+            {
+                Viaggio viaggioDaCreare = new Viaggio(nuovoViaggio.Titolo, nuovoViaggio.Descrizione, nuovoViaggio.Immagine);
+                db.Viaggi.Add(viaggioDaCreare);
+                db.SaveChanges();
+            }
 
             return RedirectToAction("Index");
+
         }
 
         [HttpGet]
         public IActionResult Update(int id)
         {
+
             Viaggio viaggioToEdit = null;
+
             using (ViaggioContext db = new ViaggioContext())
             {
-              viaggioToEdit = db.Viaggi
-              .Where(viaggio => viaggio.Id == id)
-              .FirstorDefault();
-
+                viaggioToEdit = db.Viaggi
+                    .Where(viaggio => viaggio.Id == id)
+                    .FirstOrDefault();
             }
-                if (viaggioToEdit == null)
+
+            if (viaggioToEdit == null)
             {
                 return NotFound();
             }
@@ -89,58 +105,72 @@ namespace WebApp_TravelAgency.Controllers
             {
                 return View("Update", viaggioToEdit);
             }
+
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+
         public IActionResult Update(int id, Viaggio model)
         {
             if (!ModelState.IsValid)
             {
                 return View("Update", model);
             }
-                Viaggio viaggioOriginal = null;
-                using (ViaggioContext db = new ViaggioContext())
+
+            Viaggio viaggioOriginale = null;
+
+            using (ViaggioContext db = new ViaggioContext())
+            {
+                viaggioOriginale = db.Viaggi.Where(viaggio => viaggio.Id == id)
+                    .FirstOrDefault();
+
+                if (viaggioOriginale != null)
                 {
+                   
+                    viaggioOriginale.Titolo = model.Titolo;
+                    viaggioOriginale.Immagine= model.Immagine
+                    viaggioOriginale.Descrizione = model.Descrizione;
+                
+                    db.SaveChanges();
 
-                 viaggioOriginal = db.Viaggi
-              .Where(viaggio => viaggio.Id == id)
-              .FirstorDefault();
+                    return RedirectToAction("Index");
 
-               if (viaggioOriginal != null)
-            {
-                viaggioOriginal.Titolo = model.Titolo;
-                viaggioOriginal.Descrizione = model.Descrizione;
-                viaggioOriginal.Immagine = model.Immagine;
-
-                        db.SaveChanges();
-                return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-            else
-            {
-                return NotFound();
-            }
+
         }
 
 
         [HttpPost]
+
         public IActionResult Delete(int id)
         {
-                    using (ViaggioContext db = new ViaggioContext())
-        {
-                      Viaggio  viaggioToDelete = db.Viaggi
-             .Where(viaggio => viaggio.Id == id)
-             .FirstorDefault();
-
-                        if (viaggioToDelete != null)
-                {
-                 db.Viaggi.Remove(viaggioToDelete);
-                 db.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-            else
+            using (ViaggioContext db = new ViaggioContext())
             {
-                return NotFound();
+                Viaggio viaggioDaEliminare = db.Viaggi.Where(viaggio => viaggio.Id == id).FirstOrDefault();
+
+                if (viaggioDaEliminare != null)
+                {
+                    db.Viaggi.Remove(viaggioDaEliminare);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+
+                }
+                else
+                {
+                    return NotFound();
+                }
+
             }
+
         }
- }
+
+
+    }
+}
